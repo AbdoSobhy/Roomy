@@ -7,5 +7,6 @@ target 'Roomy' do
 
   # Pods for Roomy
 pod 'Alamofire', '~> 5.0'
-pod 'Kingfisher', '~> 5.0'
+    pod 'SwiftyJSON', '~> 4.0'
+
 end
