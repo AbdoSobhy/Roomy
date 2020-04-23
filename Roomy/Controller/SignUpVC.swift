@@ -38,8 +38,8 @@ class SignUpVC: UIViewController {
         
             Connection.signUp(fullName: fullName, userName: userName, password: signUpPassword) { (error:Error?, success:Bool) in
                 if success{
-//                    do another think
-                    
+                    let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+                    self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
                 }
             }
     }

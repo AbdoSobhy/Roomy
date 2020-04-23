@@ -6,7 +6,10 @@ target 'Roomy' do
   use_frameworks!
 
   # Pods for Roomy
-pod 'Alamofire', '~> 5.0'
+    pod 'Alamofire', '~> 5.0'
     pod 'SwiftyJSON', '~> 4.0'
+    pod 'RealmSwift', '~> 4.4.1'
+    pod 'Kingfisher', '~> 5.0'
+
 
 end
