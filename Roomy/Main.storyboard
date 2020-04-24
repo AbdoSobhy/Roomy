@@ -443,7 +443,7 @@
             </objects>
             <point key="canvasLocation" x="2569" y="400"/>
         </scene>
-        <!--Detailed Room-->
+        <!--Description-->
         <scene sceneID="6Kr-Eh-MRM">
             <objects>
                 <viewController storyboardIdentifier="DetailedRoom" id="AgS-Cd-l61" customClass="DetailedRoom" customModule="Roomy" customModuleProvider="target" sceneMemberID="viewController">
@@ -505,7 +505,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jPl-RK-zOQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jMg-JI-oOj"/>
+                    <navigationItem key="navigationItem" title="Description" id="jMg-JI-oOj"/>
                     <connections>
                         <outlet property="descriptionDetails" destination="emo-Z4-QQh" id="gIs-z0-lmi"/>
                         <outlet property="imageDetails" destination="Cse-tu-gR0" id="pdS-Dw-oeQ"/>
@@ -717,7 +717,7 @@
             </objects>
             <point key="canvasLocation" x="1661.5999999999999" y="399.7536945812808"/>
         </scene>
-        <!--Featch RoomsVC-->
+        <!--Rooms-->
         <scene sceneID="Enw-3b-rvA">
             <objects>
                 <viewController storyboardIdentifier="FeatchRoomsVC" id="Vj4-kf-U2b" customClass="FeatchRoomsVC" customModule="Roomy" customModuleProvider="target" sceneMemberID="viewController">
@@ -826,8 +826,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BrW-ZL-3I8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wgC-mo-xfw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Vru-Qe-SdU">
+                    <navigationItem key="navigationItem" title="Rooms" id="wgC-mo-xfw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vru-Qe-SdU">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="o7S-zr-WbS" kind="show" id="dl3-ZE-6Ob"/>

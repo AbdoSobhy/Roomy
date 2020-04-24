@@ -25,12 +25,13 @@ class Connection: NSObject {
                 case .success(let result):
                     let post = JSON(result)
                     //Handle the results as JSON
+                    completion(nil,true)
                     if let auth_token = post["auth_token"].string{
                         UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                         
                     }
                 case .failure(let error):
-                    print(error)
+                    completion(error,false)
 
                 }
         }
@@ -52,6 +53,8 @@ class Connection: NSObject {
             switch response.result{
             case .success(let result):
                 let post = JSON(result)
+                completion(nil,true)
+
                 //Handle the results as JSON
 
                 let auth_token = post["auth_token"].string
@@ -62,14 +65,14 @@ class Connection: NSObject {
                 //At this point the user should have authenticated, store the session id and use it as you wish
                 
             case .failure(let error):
-                print(error)
-        
+                completion(error,false)
+
             }
     }
 
     }
 //    add room
-    class func addRoom(title:String,place:String,price:String,description:String?,image:String?,Authorization:String,complation : @escaping (_ error:Error? ,_ success : Bool)-> Void){
+    class func addRoom(title:String,place:String,price:String,description:String?,image:String?,Authorization:String,completion : @escaping (_ error:Error? ,_ success : Bool)-> Void){
         
         let url = URLs.addRoom
           
@@ -86,14 +89,14 @@ class Connection: NSObject {
               .responseJSON { response in
                   switch response.result{
                   case .success(let result):
-                      let post = JSON(result)
+                    _ = JSON(result)
                       //Handle the results as JSON
-                      print(post)
-                      //At this point the user should have authenticated, store the session id and use it as you wish
+                    completion(nil,true)
+
                       
                   case .failure(let error):
-                      print(error)
-              
+                      completion(error,false)
+
                   }
           }
         
@@ -103,7 +106,7 @@ class Connection: NSObject {
     
 //    featch rooms
     
-    class func featchRooms(Authorization:HTTPHeaders ,complation : @escaping (_ error:Error? ,_ success : Bool)-> Void){
+    class func featchRooms(Authorization:HTTPHeaders ,completion : @escaping (_ error:Error? ,_ success : Bool)-> Void){
         
         let url = URLs.featchRooms
           
@@ -121,8 +124,8 @@ class Connection: NSObject {
                       //At this point the user should have authenticated, store the session id and use it as you wish
                       
                   case .failure(let error):
-                      print(error)
-              
+                      completion(error,false)
+
                   }
           }
         

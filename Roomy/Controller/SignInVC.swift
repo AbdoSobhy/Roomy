@@ -36,17 +36,6 @@ class SignInVC : UIViewController{
             }
         }
          
-//                RoomsRequest.signIn(email: userTF, password: passTF) { response in
-//            switch response{
-//            case .success(let result):
-//
-//                print(result)
-//            case .failure(let error):
-//                print(error)
-//
-//
-//            }
-//        }
    
         
 
