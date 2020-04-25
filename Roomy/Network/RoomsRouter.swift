@@ -59,7 +59,7 @@ enum RoomsRouter: URLRequestConvertible {
                     "place":place,
                     "price":price,
                     "description":description ?? "",
-                    "image":image ?? UIImage(named: "Placeholder")! ]
+                    "image":image ?? "" ]
         default:
             return [:]
         }

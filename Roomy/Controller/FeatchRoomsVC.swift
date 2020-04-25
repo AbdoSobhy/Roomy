@@ -27,13 +27,14 @@ class FeatchRoomsVC: UIViewController {
             case .success(let rooms):
                 self.rooms = rooms
                 self.roomsTableView.reloadData()
+
             case .failure:
                 let realm = try! Realm()
                 let realmRoom = realm.objects(Room.self)
                 for room in realmRoom{
                     self.rooms.append(room)
                 }
-                self.roomsTableView.reloadData()  
+                self.roomsTableView.reloadData()
             }
         }
     }
