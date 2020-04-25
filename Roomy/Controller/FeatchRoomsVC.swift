@@ -11,14 +11,14 @@ import Alamofire
 import RealmSwift
 
 class FeatchRoomsVC: UIViewController {
-
+    
     @IBOutlet weak var roomsTableView: UITableView!
     private var rooms = [Room]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadRooms()
-
+        
     }
     
     fileprivate func reloadRooms() {
@@ -42,19 +42,19 @@ class FeatchRoomsVC: UIViewController {
 extension FeatchRoomsVC : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return rooms.count
+        return rooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as!RoomCell
-       
-       let titleRoom = rooms[indexPath.row].title
-       cell.titleLabel.text = titleRoom
-       let placeRoom = rooms[indexPath.row].place
-       cell.placeLabel.text = placeRoom
-       let priceRoom = rooms[indexPath.row].price
-       cell.priceLabel.text = priceRoom
-
+        
+        let titleRoom = rooms[indexPath.row].title
+        cell.titleLabel.text = titleRoom
+        let placeRoom = rooms[indexPath.row].place
+        cell.placeLabel.text = placeRoom
+        let priceRoom = rooms[indexPath.row].price
+        cell.priceLabel.text = priceRoom
+        
         return cell
     }
 }

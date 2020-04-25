@@ -10,11 +10,14 @@ import Foundation
 import Alamofire
 
 enum RoomsRouter: URLRequestConvertible {
-
-    case signIn(email:String , password :String)
-    case signUp
+    enum Constants{
+        
+        static var auth_token = UserDefaults.standard.object(forKey: "auth_token") as? String
+    }
+    case signIn(email:String,password:String)
+    case signUp(name: String, email: String, password: String)
     case featchRooms
-    case addRoom
+    case addRoom(title:String,place:String,price:String,description:String?,image:UIImage?)
     
     var url : URL {
         switch self {
@@ -26,8 +29,8 @@ enum RoomsRouter: URLRequestConvertible {
             return URL(string: "https://roomy-application.herokuapp.com/rooms")!
         case .addRoom:
             return URL(string: "https://roomy-application.herokuapp.com/rooms")!
-    }
-
+        }
+        
     }
     var method : HTTPMethod {
         switch self {
@@ -41,49 +44,37 @@ enum RoomsRouter: URLRequestConvertible {
             return.post
         }
     }
-    var parameters : Parameters?{
+    var parameters : [String:Any]{
         switch self {
-        case .signIn:
-            return ["email":"",
-                    "password": ""]
-        case . signUp:
-            return ["name":"",
-                    "email":"",
-                    "password":""]
-        case .featchRooms:
-            return nil
-        case .addRoom:
-            return ["title":"",
-                    "place":"",
-                    "price":"",
-                    "description":"",
-                    "image":"",]
+        case .signIn(let email,let password):
+            return ["email":email,
+                    "password": password]
+        case . signUp(let name,let email,let password):
+            return ["name":name,
+                    "email":email,
+                    "password":password]
+            
+        case .addRoom(let title,let place,let price,let description,let image):
+            return ["title":title,
+                    "place":place,
+                    "price":price,
+                    "description":description ?? "",
+                    "image":image ?? UIImage(named: "Placeholder")! ]
+        default:
+            return [:]
         }
         
     }
-//    headers: HTTPHeaders? = nil
-    
-    var headers : HTTPHeaders?{
-        switch self {
-        case .signIn:
-            return nil
-        case . signUp:
-            return nil
-        case .featchRooms:
-            return ["Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2OTIsImV4cCI6MTU4Nzc0NjY1MX0.GKXhICrzO4j_TBdvLJjlQJtTRCUsjLzR_AHYjjDumvE"]
-        case .addRoom:
-            return ["Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2OTIsImV4cCI6MTU4Nzc0NjY1MX0.GKXhICrzO4j_TBdvLJjlQJtTRCUsjLzR_AHYjjDumvE"]
-        }
-        
-    }
-    
-    
-    
     
     func asURLRequest() throws -> URLRequest {
-       var urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
         urlRequest.method = method
-        urlRequest.headers = headers ?? ["Authorization": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2OTIsImV4cCI6MTU4Nzc0NjY1MX0.GKXhICrzO4j_TBdvLJjlQJtTRCUsjLzR_AHYjjDumvE"]
-        return urlRequest
+        
+        
+        urlRequest.setValue(Constants.auth_token, forHTTPHeaderField: "Authorization")
+        
+        return try URLEncoding.default.encode(urlRequest, with: parameters)
+        
+        
     }
 }

@@ -12,14 +12,52 @@ import SwiftyJSON
 import RealmSwift
 
 class RoomsRequest{
-    /// Add Room
-    static func signIn(email : String , password:String,_ completionHandeler: @escaping (Result<Request,Error>) -> Void) {
+    
+    /// Sign In
+    static func signIn(email : String , password:String,_ completionHandeler: @escaping (_ success:Bool,_ error:Error?) -> Void) {
         AF.request(RoomsRouter.signIn(email: email, password: password)).responseJSON { Response in
             switch Response.result{
             case.success(let result):
-                print(result)
+                let post = JSON(result)
+                completionHandeler(true,nil)
+                if let auth_token = post["auth_token"].string{
+                    UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
+                    RoomsRouter.Constants.auth_token = auth_token
+                }
             case.failure(let error):
-                print(error)
+                completionHandeler(false,error)
+            }
+        }
+        
+    }
+    
+    /// Sign Up
+    static func signUp(name:String,email : String , password:String,_ completionHandeler: @escaping (_ success:Bool,_ error:Error?) -> Void) {
+        AF.request(RoomsRouter.signUp(name: name, email: email, password: password)).responseJSON { Response in
+            switch Response.result{
+            case.success(let result):
+                let post = JSON(result)
+                completionHandeler(true,nil)
+                let auth_token = post["auth_token"].string
+                UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
+                RoomsRouter.Constants.auth_token = auth_token
+                
+            case.failure(let error):
+                completionHandeler(false,error)
+            }
+        }
+        
+    }
+    
+    /// Add Room
+    static func addRoom(title: String, place: String, price: String, description: String?, image: UIImage?,_ completionHandeler: @escaping (_ success:Bool,_ error:Error?) -> Void) {
+        AF.request(RoomsRouter.addRoom(title: title, place: place, price: price, description: description, image: image)).responseJSON { Response in
+            switch Response.result{
+            case.success( _):
+                completionHandeler(true,nil)
+                
+            case.failure(let error):
+                completionHandeler(false,error)
             }
         }
         

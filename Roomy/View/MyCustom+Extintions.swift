@@ -13,7 +13,7 @@ class MyCustom: UIView {
     
 }
 extension UIView {
-   @IBInspectable var borderWidth : CGFloat{
+    @IBInspectable var borderWidth : CGFloat{
         set{
             self.layer.borderWidth = newValue
         }

@@ -19,8 +19,7 @@ class DetailedRoom: UIViewController {
         super.viewDidLoad()
         descriptionDetails.text = descriptionText
         imageDetails.kf.setImage(with: URL(string: imageHolder ?? "https://www.google.com/url?sa=i&source=images&cd=&cad=rja"))
-        // Do any additional setup after loading the view.
     }
     
-
+    
 }

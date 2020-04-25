@@ -18,7 +18,7 @@ class Room : Object,  Codable {
     @objc dynamic var descriptions : String? = ""   //  <--- defrant parameter orgin is description
     @objc dynamic var created_at : String? = ""
     @objc dynamic var updated_at : String? = ""
-
+    
     
     enum CodingKeys: String, CodingKey  {
         case descriptions = "description"
@@ -26,6 +26,6 @@ class Room : Object,  Codable {
         case price
         case place
         case image
-
+        
     }
 }

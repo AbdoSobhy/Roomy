@@ -9,27 +9,22 @@
 import UIKit
 
 class CheckingVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func checkLogin(_ sender: Any) {
         
         if UserDefaults.standard.object(forKey: "auth_token") != nil {
-              let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+            let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
             self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
-
+            
         }
         else{
             
             let SignInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SignInVC" ) as! SignInVC
-                       self.navigationController?.pushViewController(SignInVC, animated: true)
+            self.navigationController?.pushViewController(SignInVC, animated: true)
         }
-        
     }
-
-
 }
