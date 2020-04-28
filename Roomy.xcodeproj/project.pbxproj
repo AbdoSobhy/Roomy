@@ -129,12 +129,12 @@
 		52F44BF7244913FD003EE6C5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
-				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
-				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
+				52DCEA562451FF30002F429C /* CheckingVC.swift */,
 				5295E53624389795003F9C24 /* SignInVC.swift */,
 				5295E5382438E973003F9C24 /* SignUpVC.swift */,
-				52DCEA562451FF30002F429C /* CheckingVC.swift */,
+				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
+				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
+				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
