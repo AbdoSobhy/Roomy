@@ -32,11 +32,8 @@ class FeatchRoomsVC: UIViewController {
                 self.roomsTableView.reloadData()
 
             case .failure:
-                let realm = try! Realm()
-                let realmRoom = realm.objects(Room.self)
-                for room in realmRoom{
-                    self.rooms.append(room)
-                }
+                    self.rooms.append(contentsOf: RealmManger.featchRooms())
+                
                 self.view.hideSkeleton()
                 self.roomsTableView.reloadData()
             }

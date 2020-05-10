@@ -74,9 +74,7 @@ class RoomsRequest{
                     let realm = try! Realm()
                     
                     if realm.isEmpty{
-                        try realm.write {
-                            realm.add(rooms)
-                        }
+                        RealmManger.saveRooms(rooms: rooms)
                     }
                     completionHandeler(.success(rooms))
                     
