@@ -15,7 +15,7 @@ class Room : Object,  Codable {
     @objc dynamic var price : String? = ""
     @objc dynamic var place : String? = ""
     @objc dynamic var image : String? = ""
-    @objc dynamic var descriptions : String? = ""   //  <--- defrant parameter orgin is description
+    @objc dynamic var descriptions : String? = ""   //  <--- deffrent parameter orgin is description
     @objc dynamic var created_at : String? = ""
     @objc dynamic var updated_at : String? = ""
     

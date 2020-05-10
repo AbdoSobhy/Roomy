@@ -70,7 +70,6 @@ class RoomsRequest{
             switch response.result{
             case .success(let result):
                 do {
-                    
                     let rooms = try JSONDecoder().decode([Room].self, from: result)
                     let realm = try! Realm()
                     
@@ -79,8 +78,6 @@ class RoomsRequest{
                             realm.add(rooms)
                         }
                     }
-                    
-                    
                     completionHandeler(.success(rooms))
                     
                 } catch {

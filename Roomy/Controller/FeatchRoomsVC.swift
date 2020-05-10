@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import RealmSwift
+import SkeletonView
 
 class FeatchRoomsVC: UIViewController {
     
@@ -17,6 +18,7 @@ class FeatchRoomsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.showAnimatedGradientSkeleton()
         reloadRooms()
         
     }
@@ -26,6 +28,7 @@ class FeatchRoomsVC: UIViewController {
             switch response{
             case .success(let rooms):
                 self.rooms = rooms
+                self.view.hideSkeleton()
                 self.roomsTableView.reloadData()
 
             case .failure:
@@ -34,13 +37,18 @@ class FeatchRoomsVC: UIViewController {
                 for room in realmRoom{
                     self.rooms.append(room)
                 }
+                self.view.hideSkeleton()
                 self.roomsTableView.reloadData()
             }
         }
     }
     
 }
-extension FeatchRoomsVC : UITableViewDataSource{
+extension FeatchRoomsVC : SkeletonTableViewDataSource{
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "RoomCell"
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rooms.count

@@ -8,12 +8,14 @@ PODS:
   - Realm/Headers (4.4.1)
   - RealmSwift (4.4.1):
     - Realm (= 4.4.1)
+  - SkeletonView (1.8.7)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
   - Kingfisher (~> 5.0)
   - RealmSwift (~> 4.4.1)
+  - SkeletonView (~> 1.8.7)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Kingfisher
     - Realm
     - RealmSwift
+    - SkeletonView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -29,8 +32,9 @@ SPEC CHECKSUMS:
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: c10105b39e7023cfd26f4955cab2107d42a2f303
+PODFILE CHECKSUM: 62422bb7d72f6b941fef4364a37a84343bea9cbc
 
 COCOAPODS: 1.9.0

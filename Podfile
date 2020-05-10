@@ -10,6 +10,7 @@ target 'Roomy' do
     pod 'SwiftyJSON', '~> 4.0'
     pod 'RealmSwift', '~> 4.4.1'
     pod 'Kingfisher', '~> 5.0'
+    pod "SkeletonView", '~> 1.8.7'
 
 
 end
