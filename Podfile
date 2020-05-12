@@ -11,6 +11,7 @@ target 'Roomy' do
     pod 'RealmSwift', '~> 4.4.1'
     pod 'Kingfisher', '~> 5.0'
     pod "SkeletonView", '~> 1.8.7'
+    pod 'KeychainSwift', '~> 19.0'
 
 
 end

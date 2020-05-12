@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class SignInVC : UIViewController{
     @IBOutlet weak var userNameTF: UITextField!

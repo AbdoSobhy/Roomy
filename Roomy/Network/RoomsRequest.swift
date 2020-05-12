@@ -20,10 +20,14 @@ class RoomsRequest{
             case.success(let result):
                 let post = JSON(result)
                 completionHandeler(true,nil)
+                
                 if let auth_token = post["auth_token"].string{
-                    UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
+                    KeyChain.shared.setKey(keyName: "auth_token", keyValue: auth_token)
+                    print("key have been set ")
+//                    UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                     RoomsRouter.Constants.auth_token = auth_token
                 }
+                
             case.failure(let error):
                 completionHandeler(false,error)
             }
@@ -38,10 +42,11 @@ class RoomsRequest{
             case.success(let result):
                 let post = JSON(result)
                 completionHandeler(true,nil)
-                let auth_token = post["auth_token"].string
-                UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
+                if let auth_token = post["auth_token"].string{
+                KeyChain.shared.setKey(keyName: auth_token, keyValue: auth_token)
+//                UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                 RoomsRouter.Constants.auth_token = auth_token
-                
+                }
             case.failure(let error):
                 completionHandeler(false,error)
             }

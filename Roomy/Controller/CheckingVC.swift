@@ -16,7 +16,7 @@ class CheckingVC: UIViewController {
     
     @IBAction func checkLogin(_ sender: Any) {
         
-        if UserDefaults.standard.object(forKey: "auth_token") != nil {
+        if KeyChain.shared.getKey(keyName: "auth_token") != nil {
             let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
             self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
             

@@ -14,7 +14,7 @@ class RealmManger{
     private static let realm = try! Realm()
     static func saveRooms(rooms:[Room]){
         try! realm.write {
-            realm.add(rooms)
+            realm.add(rooms, update: .modified)
         }
     }
     

@@ -12,7 +12,8 @@ import Alamofire
 enum RoomsRouter: URLRequestConvertible {
     enum Constants{
         
-        static var auth_token = UserDefaults.standard.object(forKey: "auth_token") as? String
+        static var auth_token = KeyChain.shared.getKey(keyName: "auth_token")
+//            UserDefaults.standard.object(forKey: "auth_token") as? String
     }
     case signIn(email:String,password:String)
     case signUp(name: String, email: String, password: String)

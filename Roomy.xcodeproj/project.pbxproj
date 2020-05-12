@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		523AFEBC244DF4C600AB8639 /* RoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */; };
 		523AFEBE244DF4D800AB8639 /* RoomsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AFEBD244DF4D800AB8639 /* RoomsRequest.swift */; };
+		52534448246B60F30009411B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52534447246B60F30009411B /* KeyChain.swift */; };
 		527D12BE244E375B005A46EB /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BD244E375B005A46EB /* RealmManager.swift */; };
 		527D12C0244E433D005A46EB /* MyCustom+Extintions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */; };
 		527F6C0724193AAD0023F0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F6C0624193AAD0023F0C3 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRouter.swift; sourceTree = "<group>"; };
 		523AFEBD244DF4D800AB8639 /* RoomsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRequest.swift; sourceTree = "<group>"; };
+		52534447246B60F30009411B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		527D12BD244E375B005A46EB /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCustom+Extintions.swift"; sourceTree = "<group>"; };
 		527F6C0324193AAD0023F0C3 /* Roomy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		52534446246B60C00009411B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				52534447246B60F30009411B /* KeyChain.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		527D12BC244E3722005A46EB /* DatabaseLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		527F6C0524193AAD0023F0C3 /* Roomy */ = {
 			isa = PBXGroup;
 			children = (
+				52534446246B60C00009411B /* Utilities */,
 				527D12BC244E3722005A46EB /* DatabaseLayer */,
 				523AFEBA244DF49B00AB8639 /* Network */,
 				52FC842E243A2BCF00638C46 /* Model */,
@@ -286,6 +297,7 @@
 				52DCEA5B24522639002F429C /* DetailedRoom.swift in Sources */,
 				52DC6107244E02CA00AC6833 /* Room.swift in Sources */,
 				527F6C0724193AAD0023F0C3 /* AppDelegate.swift in Sources */,
+				52534448246B60F30009411B /* KeyChain.swift in Sources */,
 				52DCEA572451FF30002F429C /* CheckingVC.swift in Sources */,
 				52DCEA59245217E3002F429C /* AddRoomVC.swift in Sources */,
 				523AFEBC244DF4C600AB8639 /* RoomsRouter.swift in Sources */,

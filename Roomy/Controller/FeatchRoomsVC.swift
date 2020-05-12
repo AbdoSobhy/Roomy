@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import RealmSwift
 import SkeletonView
 
 class FeatchRoomsVC: UIViewController {
@@ -18,10 +16,16 @@ class FeatchRoomsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.showAnimatedGradientSkeleton()
-        reloadRooms()
+        //view.showAnimatedGradientSkeleton()
+        //reloadRooms()
         
     }
+    override func viewLayoutMarginsDidChange() {
+        super.viewLayoutMarginsDidChange()
+          view.showAnimatedGradientSkeleton()
+              reloadRooms()
+    }
+
     
     fileprivate func reloadRooms() {
         RoomsRequest.feachRooms { response in
