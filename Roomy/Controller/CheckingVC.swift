@@ -15,15 +15,14 @@ class CheckingVC: UIViewController {
     }
     
     @IBAction func checkLogin(_ sender: Any) {
-        
         if KeyChain.shared.getKey(keyName: "auth_token") != nil {
-            let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+            let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
             self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
             
         }
         else{
             
-            let SignInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SignInVC" ) as! SignInVC
+            let SignInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignInVC" ) as! SignInVC
             self.navigationController?.pushViewController(SignInVC, animated: true)
         }
     }

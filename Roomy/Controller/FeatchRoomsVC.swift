@@ -57,20 +57,13 @@ extension FeatchRoomsVC : SkeletonTableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as!RoomCell
-        
-        let titleRoom = rooms[indexPath.row].title
-        cell.titleLabel.text = titleRoom
-        let placeRoom = rooms[indexPath.row].place
-        cell.placeLabel.text = placeRoom
-        let priceRoom = rooms[indexPath.row].price
-        cell.priceLabel.text = priceRoom
-        
+        cell.registerCell(room: rooms[indexPath.row])
         return cell
     }
 }
 extension FeatchRoomsVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailedRoom = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DetailedRoom") as! DetailedRoom
+        let detailedRoom = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailedRoom") as! DetailedRoom
         detailedRoom.descriptionText = rooms[indexPath.row].descriptions
         detailedRoom.imageHolder = rooms[indexPath.row].image
         self.navigationController?.pushViewController(detailedRoom, animated: true)

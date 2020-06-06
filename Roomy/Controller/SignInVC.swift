@@ -8,19 +8,40 @@
 
 import Foundation
 import Alamofire
+import FBSDKLoginKit
+import SwiftyJSON
 
 class SignInVC : UIViewController{
+    
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    
+    @IBOutlet weak var facebookBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-    
     @IBAction func unwindFromSkillVC(unwindSegue : UIStoryboardSegue) {
         
     }
-    
+    @IBAction func facebookLoginWasPressed(_ sender: Any) {
+        if AccessToken.current != nil {
+            FacebookManger.shared.featchProfile { (result) in
+                guard let email = result!["email"].string else {return}
+                let pass = "123456"
+                RoomsRequest.signIn(email: email, password: pass) { (isSuccess, error) in
+                    if isSuccess{
+                        guard let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as? FeatchRoomsVC else { return }
+                        self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
+                    }
+                }
+            }
+        }
+        else {
+
+            FacebookManger.shared.login(VC: self)
+
+        }
+    }
     @IBAction func signInButton(_ sender: Any) {
         //        Check textfield are empty or not
         guard let userTF = userNameTF!.text, !userTF.isEmpty else {return}
@@ -28,7 +49,7 @@ class SignInVC : UIViewController{
         
         RoomsRequest.signIn(email: userTF, password: passTF) { (success:Bool, error:Error?) in
             if success{
-                let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+                let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
                 self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
             }
         }

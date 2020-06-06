@@ -12,6 +12,8 @@ target 'Roomy' do
     pod 'Kingfisher', '~> 5.0'
     pod "SkeletonView", '~> 1.8.7'
     pod 'KeychainSwift', '~> 19.0'
+    pod 'FBSDKLoginKit', '~> 7.0.0'
+    pod 'IQKeyboardManagerSwift', '~> 6.3.0'
 
 
 end

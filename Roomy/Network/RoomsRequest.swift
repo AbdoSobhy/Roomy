@@ -12,7 +12,6 @@ import SwiftyJSON
 import RealmSwift
 
 class RoomsRequest{
-    
     /// Sign In
     static func signIn(email : String , password:String,_ completionHandeler: @escaping (_ success:Bool,_ error:Error?) -> Void) {
         AF.request(RoomsRouter.signIn(email: email, password: password)).responseJSON { Response in
@@ -23,7 +22,6 @@ class RoomsRequest{
                 
                 if let auth_token = post["auth_token"].string{
                     KeyChain.shared.setKey(keyName: "auth_token", keyValue: auth_token)
-                    print("key have been set ")
 //                    UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                     RoomsRouter.Constants.auth_token = auth_token
                 }
@@ -37,13 +35,14 @@ class RoomsRequest{
     
     /// Sign Up
     static func signUp(name:String,email : String , password:String,_ completionHandeler: @escaping (_ success:Bool,_ error:Error?) -> Void) {
+
         AF.request(RoomsRouter.signUp(name: name, email: email, password: password)).responseJSON { Response in
             switch Response.result{
             case.success(let result):
                 let post = JSON(result)
                 completionHandeler(true,nil)
                 if let auth_token = post["auth_token"].string{
-                KeyChain.shared.setKey(keyName: auth_token, keyValue: auth_token)
+                KeyChain.shared.setKey(keyName: "auth_token", keyValue: auth_token)
 //                UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                 RoomsRouter.Constants.auth_token = auth_token
                 }
@@ -76,11 +75,9 @@ class RoomsRequest{
             case .success(let result):
                 do {
                     let rooms = try JSONDecoder().decode([Room].self, from: result)
-                    let realm = try! Realm()
+                    /// realm backup
+                    RealmManger.saveRooms(rooms: rooms)
                     
-                    if realm.isEmpty{
-                        RealmManger.saveRooms(rooms: rooms)
-                    }
                     completionHandeler(.success(rooms))
                     
                 } catch {

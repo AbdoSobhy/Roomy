@@ -17,9 +17,10 @@ class RoomCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+    func registerCell(room : Room) {
+        titleLabel.text = room.title
+        placeLabel.text = room.place
+        priceLabel.text = room.price
     }
     
 }

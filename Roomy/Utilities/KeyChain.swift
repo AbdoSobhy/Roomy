@@ -15,9 +15,11 @@ class KeyChain{
    let KeyChainObject = KeychainSwift()
     func setKey(keyName : String , keyValue : String) {
         KeyChainObject.set(keyValue, forKey: keyName)
-        
     }
     func getKey(keyName : String) -> String? {
        return KeyChainObject.get(keyName)
+    }
+    func deleteKeys() {
+        KeyChainObject.clear()
     }
 }

@@ -42,14 +42,14 @@ class AddRoomVC: UIViewController {
         let description = descriptionRoom.text
         let image = imageRoom.image
         
-        
         RoomsRequest.addRoom(title: titleRoom, place: placeRoom, price: priceRoom, description: description, image: image) { (success:Bool, error:Error?) in
             if success{
-                let FeatchRoomsVC = UIStoryboard(name: "Main", bundle : nil).instantiateViewController(identifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+                let FeatchRoomsVC = UIStoryboard(name: "Main", bundle : nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
                 self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
             }
         }
     }
+    
 }
 extension AddRoomVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -61,7 +61,6 @@ extension AddRoomVC : UIImagePickerControllerDelegate , UINavigationControllerDe
             } else if let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 self.pickedImage = editedImage
             }
-        
     }
 }
 

@@ -12,9 +12,16 @@ import RealmSwift
 class RealmManger{
     
     private static let realm = try! Realm()
+    
+    static func deleteRooms(){
+        try! realm.write{
+            realm.deleteAll()
+        }
+    }
+    
     static func saveRooms(rooms:[Room]){
         try! realm.write {
-            realm.add(rooms, update: .modified)
+            realm.add(rooms,update: .modified)
         }
     }
     
@@ -26,5 +33,4 @@ class RealmManger{
         }
         return roomsArray
     }
-    
 }
