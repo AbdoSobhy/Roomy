@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
+
 
 class SignUpVC: UIViewController {
+    var signUpPresenter : SignUpPresenter?
+    
     @IBOutlet weak var signUpFullName: UITextField!
     @IBOutlet weak var signUpUsername: UITextField!
     @IBOutlet weak var signUpPassword: UITextField!
@@ -18,26 +19,24 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        signUpPresenter = SignUpPresenterImpl(view : self)
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        
-        
         //        Check lables are empty or not
+        
         guard let fullName = signUpFullName.text, !fullName.isEmpty else {return}
         guard let userName = signUpUsername.text, !userName.isEmpty else {return}
         guard let signUpPassword = signUpPassword.text, !signUpPassword.isEmpty else {return}
         guard let confirmPassword = signUpConfirmPass.text, !confirmPassword.isEmpty else {return}
-        
         if signUpPassword == confirmPassword{
-            
-            RoomsRequest.signUp(name: fullName, email: userName, password: signUpPassword) { (success:Bool, error:Error?) in
-                if success{
-                    let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
-                    self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
-                }
-            }
+            signUpPresenter?.signUp(fullName: fullName, userName: userName, signUpPassword: signUpPassword)
         }
+    }
+}
+extension SignUpVC : SignUpView {
+    func navigateToRooms() {
+        let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+        self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
     }
 }

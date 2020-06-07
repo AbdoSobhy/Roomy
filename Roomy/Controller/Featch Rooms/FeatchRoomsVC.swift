@@ -10,38 +10,23 @@ import UIKit
 import SkeletonView
 
 class FeatchRoomsVC: UIViewController {
-    
+    var featchRoomsPresenter : FeatchRoomsPresenter?
     @IBOutlet weak var roomsTableView: UITableView!
     private var rooms = [Room]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.showAnimatedGradientSkeleton()
-        //reloadRooms()
-        
+        featchRoomsPresenter = FeatchRoomsPresenterImpl(view : self)
     }
     override func viewLayoutMarginsDidChange() {
         super.viewLayoutMarginsDidChange()
-          view.showAnimatedGradientSkeleton()
-              reloadRooms()
-    }
-
-    
-    fileprivate func reloadRooms() {
-        RoomsRequest.feachRooms { response in
-            switch response{
-            case .success(let rooms):
-                self.rooms = rooms
-                self.view.hideSkeleton()
-                self.roomsTableView.reloadData()
-
-            case .failure:
-                    self.rooms.append(contentsOf: RealmManger.featchRooms())
-                
-                self.view.hideSkeleton()
-                self.roomsTableView.reloadData()
-            }
-        }
+        
+        view.showAnimatedGradientSkeleton()
+        guard let myRooms = featchRoomsPresenter?.getRooms() else {return}
+        rooms.append(contentsOf: (myRooms))
+        self.view.hideSkeleton()
+        self.roomsTableView.reloadData()
+        
     }
     
 }
@@ -68,5 +53,8 @@ extension FeatchRoomsVC : UITableViewDelegate{
         detailedRoom.imageHolder = rooms[indexPath.row].image
         self.navigationController?.pushViewController(detailedRoom, animated: true)
     }
+}
+extension FeatchRoomsVC : FeatchRoomsView{
+    
 }
 

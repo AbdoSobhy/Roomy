@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 
 class DetailedRoom: UIViewController {
+    var detailedRoomPresenter : DetailedRoomPresenter?
     var descriptionText : String?
     var imageHolder : String?
     @IBOutlet weak var imageDetails: UIImageView!
@@ -17,9 +18,18 @@ class DetailedRoom: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionDetails.text = descriptionText
-        imageDetails.kf.setImage(with: URL(string: imageHolder ?? "https://www.google.com/url?sa=i&source=images&cd=&cad=rja"))
+        detailedRoomPresenter = DetailedRoomPresenterImpl(view : self)
+        
+        detailedRoomPresenter?.showDetails()
+        
     }
     
     
+}
+extension DetailedRoom : DetailedRoomView {
+    func showDetails() {
+        descriptionDetails.text = descriptionText
+        
+        imageDetails.kf.setImage(with: URL(string: imageHolder ?? "https://www.google.com/url?sa=i&source=images&cd=&cad=rja"))
+    }   
 }

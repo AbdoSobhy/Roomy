@@ -15,6 +15,9 @@ class AddRoomVC: UIViewController {
     @IBOutlet weak var descriptionRoom: UITextField!
     
     @IBOutlet weak var imageRoom: UIImageView!
+    var addRoomPresenter : AddRoomPresenter?
+    
+    
     var pickedImage:UIImage?{
         didSet{
             imageRoom.image = pickedImage
@@ -22,7 +25,7 @@ class AddRoomVC: UIViewController {
         }
     }
     @IBAction func choseImage(_ sender: Any) {
-       let picker = UIImagePickerController()
+        let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         picker.delegate = self
@@ -31,6 +34,7 @@ class AddRoomVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRoomPresenter = AddRoomPresenterImpl(view : self)
         imageRoom.image = UIImage(named: "Placeholder")
     }
     
@@ -41,13 +45,7 @@ class AddRoomVC: UIViewController {
         guard let priceRoom = priceRoom.text, !priceRoom.isEmpty else {return}
         let description = descriptionRoom.text
         let image = imageRoom.image
-        
-        RoomsRequest.addRoom(title: titleRoom, place: placeRoom, price: priceRoom, description: description, image: image) { (success:Bool, error:Error?) in
-            if success{
-                let FeatchRoomsVC = UIStoryboard(name: "Main", bundle : nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
-                self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
-            }
-        }
+        addRoomPresenter?.addRoom(title: titleRoom, place: placeRoom, price: priceRoom, description: description, image: image)
     }
     
 }
@@ -58,9 +56,15 @@ extension AddRoomVC : UIImagePickerControllerDelegate , UINavigationControllerDe
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             self.pickedImage = editedImage
-            } else if let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                self.pickedImage = editedImage
-            }
+        } else if let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            self.pickedImage = editedImage
+        }
+    }
+}
+extension AddRoomVC : AddRoomView {
+    func navigateToFeatchRoomsVC() {
+        let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
+        self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)
     }
 }
 

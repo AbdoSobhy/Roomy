@@ -10,6 +10,12 @@
 		52215D9424749890008C0655 /* FacebookManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52215D9324749890008C0655 /* FacebookManger.swift */; };
 		523AFEBC244DF4C600AB8639 /* RoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */; };
 		523AFEBE244DF4D800AB8639 /* RoomsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AFEBD244DF4D800AB8639 /* RoomsRequest.swift */; };
+		523D79B2248D39B00074ECDC /* CheckingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79B1248D39B00074ECDC /* CheckingPresenter.swift */; };
+		523D79B5248D4CA00074ECDC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79B4248D4CA00074ECDC /* SignUpPresenter.swift */; };
+		523D79B8248D5CF50074ECDC /* SignInPresesnter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79B7248D5CF50074ECDC /* SignInPresesnter.swift */; };
+		523D79BB248D65460074ECDC /* AddRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79BA248D65460074ECDC /* AddRoomPresenter.swift */; };
+		523D79BE248D69170074ECDC /* DetailedRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */; };
+		523D79C1248D71070074ECDC /* FeatchRoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */; };
 		52534448246B60F30009411B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52534447246B60F30009411B /* KeyChain.swift */; };
 		527D12BE244E375B005A46EB /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BD244E375B005A46EB /* RealmManager.swift */; };
 		527D12C0244E433D005A46EB /* MyCustom+Extintions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */; };
@@ -33,6 +39,12 @@
 		52215D9324749890008C0655 /* FacebookManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManger.swift; sourceTree = "<group>"; };
 		523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRouter.swift; sourceTree = "<group>"; };
 		523AFEBD244DF4D800AB8639 /* RoomsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRequest.swift; sourceTree = "<group>"; };
+		523D79B1248D39B00074ECDC /* CheckingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingPresenter.swift; sourceTree = "<group>"; };
+		523D79B4248D4CA00074ECDC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		523D79B7248D5CF50074ECDC /* SignInPresesnter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresesnter.swift; sourceTree = "<group>"; };
+		523D79BA248D65460074ECDC /* AddRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPresenter.swift; sourceTree = "<group>"; };
+		523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRoomPresenter.swift; sourceTree = "<group>"; };
+		523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatchRoomsPresenter.swift; sourceTree = "<group>"; };
 		52534447246B60F30009411B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		527D12BD244E375B005A46EB /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCustom+Extintions.swift"; sourceTree = "<group>"; };
@@ -75,6 +87,60 @@
 				523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		523D79B0248D39890074ECDC /* Checking */ = {
+			isa = PBXGroup;
+			children = (
+				52DCEA562451FF30002F429C /* CheckingVC.swift */,
+				523D79B1248D39B00074ECDC /* CheckingPresenter.swift */,
+			);
+			path = Checking;
+			sourceTree = "<group>";
+		};
+		523D79B3248D4C260074ECDC /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				5295E5382438E973003F9C24 /* SignUpVC.swift */,
+				523D79B4248D4CA00074ECDC /* SignUpPresenter.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		523D79B6248D5CD40074ECDC /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				5295E53624389795003F9C24 /* SignInVC.swift */,
+				523D79B7248D5CF50074ECDC /* SignInPresesnter.swift */,
+			);
+			path = "Sign In";
+			sourceTree = "<group>";
+		};
+		523D79B9248D652B0074ECDC /* Add Room */ = {
+			isa = PBXGroup;
+			children = (
+				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
+				523D79BA248D65460074ECDC /* AddRoomPresenter.swift */,
+			);
+			path = "Add Room";
+			sourceTree = "<group>";
+		};
+		523D79BC248D68D80074ECDC /* Detailed Room */ = {
+			isa = PBXGroup;
+			children = (
+				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
+				523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */,
+			);
+			path = "Detailed Room";
+			sourceTree = "<group>";
+		};
+		523D79BF248D70DD0074ECDC /* Featch Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
+				523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */,
+			);
+			path = "Featch Rooms";
 			sourceTree = "<group>";
 		};
 		52534446246B60C00009411B /* Utilities */ = {
@@ -143,12 +209,12 @@
 		52F44BF7244913FD003EE6C5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52DCEA562451FF30002F429C /* CheckingVC.swift */,
-				5295E53624389795003F9C24 /* SignInVC.swift */,
-				5295E5382438E973003F9C24 /* SignUpVC.swift */,
-				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
-				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
-				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
+				523D79B0248D39890074ECDC /* Checking */,
+				523D79B3248D4C260074ECDC /* Sign Up */,
+				523D79B6248D5CD40074ECDC /* Sign In */,
+				523D79BF248D70DD0074ECDC /* Featch Rooms */,
+				523D79B9248D652B0074ECDC /* Add Room */,
+				523D79BC248D68D80074ECDC /* Detailed Room */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,9 +359,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523D79B5248D4CA00074ECDC /* SignUpPresenter.swift in Sources */,
+				523D79B8248D5CF50074ECDC /* SignInPresesnter.swift in Sources */,
 				5295E53724389795003F9C24 /* SignInVC.swift in Sources */,
 				527F6C0B24193AAD0023F0C3 /* FeatchRoomsVC.swift in Sources */,
+				523D79C1248D71070074ECDC /* FeatchRoomsPresenter.swift in Sources */,
 				527D12C0244E433D005A46EB /* MyCustom+Extintions.swift in Sources */,
+				523D79BE248D69170074ECDC /* DetailedRoomPresenter.swift in Sources */,
 				52215D9424749890008C0655 /* FacebookManger.swift in Sources */,
 				527D12BE244E375B005A46EB /* RealmManager.swift in Sources */,
 				52DCEA5B24522639002F429C /* DetailedRoom.swift in Sources */,
@@ -306,7 +376,9 @@
 				52DCEA59245217E3002F429C /* AddRoomVC.swift in Sources */,
 				523AFEBC244DF4C600AB8639 /* RoomsRouter.swift in Sources */,
 				52B9D8BD244F6B1F00F2E553 /* RoomCell.swift in Sources */,
+				523D79BB248D65460074ECDC /* AddRoomPresenter.swift in Sources */,
 				523AFEBE244DF4D800AB8639 /* RoomsRequest.swift in Sources */,
+				523D79B2248D39B00074ECDC /* CheckingPresenter.swift in Sources */,
 				5295E5392438E973003F9C24 /* SignUpVC.swift in Sources */,
 				527F6C0924193AAD0023F0C3 /* SceneDelegate.swift in Sources */,
 			);
