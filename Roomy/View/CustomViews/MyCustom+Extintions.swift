@@ -7,8 +7,8 @@
 //
 
 import UIKit
-@IBDesignable
 
+@IBDesignable
 class MyCustom: UIView {
     
 }

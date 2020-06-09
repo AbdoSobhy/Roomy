@@ -12,26 +12,29 @@ protocol FeatchRoomsView : AnyObject {
     
 }
 protocol FeatchRoomsPresenter {
-    func getRooms() -> [Room]
+    func getRooms(_ completionHandeler : @escaping ([Room])->Void )
+    func getRoomsCount(_ rooms : [Room]) -> Int
 }
 class FeatchRoomsPresenterImpl : FeatchRoomsPresenter {
     weak var view : FeatchRoomsView?
+    
+
     init(view : FeatchRoomsView) {
         self.view = view
     }
     
-    func getRooms() -> [Room] {
-        var roomsArr = [Room]()
+    func getRoomsCount(_ rooms : [Room]) -> Int {
+       return rooms.count
+    }
+    func getRooms(_ completionHandeler : @escaping ([Room])->Void ) {
         RoomsRequest.feachRooms { response in
             switch response{
             case .success(let rooms):
-                roomsArr = rooms
-                
+                completionHandeler(rooms)
             case .failure:
-                roomsArr.append(contentsOf: RealmManger.featchRooms())
+                completionHandeler(RealmManger.featchRooms())
             }
         }
-        return roomsArr
         
     }
     

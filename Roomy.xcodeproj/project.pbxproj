@@ -26,7 +26,7 @@
 		527F6C1324193AAE0023F0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 527F6C1124193AAE0023F0C3 /* LaunchScreen.storyboard */; };
 		5295E53724389795003F9C24 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295E53624389795003F9C24 /* SignInVC.swift */; };
 		5295E5392438E973003F9C24 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295E5382438E973003F9C24 /* SignUpVC.swift */; };
-		52B9D8BD244F6B1F00F2E553 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9D8BC244F6B1F00F2E553 /* RoomCell.swift */; };
+		52B9D8BD244F6B1F00F2E553 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9D8BC244F6B1F00F2E553 /* RoomTableViewCell.swift */; };
 		52B9D8BF244F802B00F2E553 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B9D8BE244F802B00F2E553 /* Main.storyboard */; };
 		52DC6107244E02CA00AC6833 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC6106244E02CA00AC6833 /* Room.swift */; };
 		52DCEA572451FF30002F429C /* CheckingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCEA562451FF30002F429C /* CheckingVC.swift */; };
@@ -57,7 +57,7 @@
 		527F6C1424193AAE0023F0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5295E53624389795003F9C24 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		5295E5382438E973003F9C24 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		52B9D8BC244F6B1F00F2E553 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
+		52B9D8BC244F6B1F00F2E553 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		52B9D8BE244F802B00F2E553 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52DC6106244E02CA00AC6833 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		52DCEA562451FF30002F429C /* CheckingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingVC.swift; sourceTree = "<group>"; };
@@ -87,60 +87,6 @@
 				523AFEBB244DF4C600AB8639 /* RoomsRouter.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		523D79B0248D39890074ECDC /* Checking */ = {
-			isa = PBXGroup;
-			children = (
-				52DCEA562451FF30002F429C /* CheckingVC.swift */,
-				523D79B1248D39B00074ECDC /* CheckingPresenter.swift */,
-			);
-			path = Checking;
-			sourceTree = "<group>";
-		};
-		523D79B3248D4C260074ECDC /* Sign Up */ = {
-			isa = PBXGroup;
-			children = (
-				5295E5382438E973003F9C24 /* SignUpVC.swift */,
-				523D79B4248D4CA00074ECDC /* SignUpPresenter.swift */,
-			);
-			path = "Sign Up";
-			sourceTree = "<group>";
-		};
-		523D79B6248D5CD40074ECDC /* Sign In */ = {
-			isa = PBXGroup;
-			children = (
-				5295E53624389795003F9C24 /* SignInVC.swift */,
-				523D79B7248D5CF50074ECDC /* SignInPresesnter.swift */,
-			);
-			path = "Sign In";
-			sourceTree = "<group>";
-		};
-		523D79B9248D652B0074ECDC /* Add Room */ = {
-			isa = PBXGroup;
-			children = (
-				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
-				523D79BA248D65460074ECDC /* AddRoomPresenter.swift */,
-			);
-			path = "Add Room";
-			sourceTree = "<group>";
-		};
-		523D79BC248D68D80074ECDC /* Detailed Room */ = {
-			isa = PBXGroup;
-			children = (
-				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
-				523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */,
-			);
-			path = "Detailed Room";
-			sourceTree = "<group>";
-		};
-		523D79BF248D70DD0074ECDC /* Featch Rooms */ = {
-			isa = PBXGroup;
-			children = (
-				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
-				523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */,
-			);
-			path = "Featch Rooms";
 			sourceTree = "<group>";
 		};
 		52534446246B60C00009411B /* Utilities */ = {
@@ -186,7 +132,7 @@
 				523AFEBA244DF49B00AB8639 /* Network */,
 				52FC842E243A2BCF00638C46 /* Model */,
 				52F44BF6244913F2003EE6C5 /* View */,
-				52F44BF7244913FD003EE6C5 /* Controller */,
+				52F44BF7244913FD003EE6C5 /* Presenter */,
 				527F6C0624193AAD0023F0C3 /* AppDelegate.swift */,
 				527F6C0824193AAD0023F0C3 /* SceneDelegate.swift */,
 				527F6C0F24193AAE0023F0C3 /* Assets.xcassets */,
@@ -197,26 +143,40 @@
 			path = Roomy;
 			sourceTree = "<group>";
 		};
-		52F44BF6244913F2003EE6C5 /* View */ = {
+		52D17865248F0B8E009464F1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */,
-				52B9D8BC244F6B1F00F2E553 /* RoomCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		52F44BF6244913F2003EE6C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52DCEA562451FF30002F429C /* CheckingVC.swift */,
+				5295E5382438E973003F9C24 /* SignUpVC.swift */,
+				5295E53624389795003F9C24 /* SignInVC.swift */,
+				527F6C0A24193AAD0023F0C3 /* FeatchRoomsVC.swift */,
+				52DCEA58245217E3002F429C /* AddRoomVC.swift */,
+				52DCEA5A24522639002F429C /* DetailedRoom.swift */,
+				52D17865248F0B8E009464F1 /* CustomViews */,
+				52B9D8BC244F6B1F00F2E553 /* RoomTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		52F44BF7244913FD003EE6C5 /* Controller */ = {
+		52F44BF7244913FD003EE6C5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				523D79B0248D39890074ECDC /* Checking */,
-				523D79B3248D4C260074ECDC /* Sign Up */,
-				523D79B6248D5CD40074ECDC /* Sign In */,
-				523D79BF248D70DD0074ECDC /* Featch Rooms */,
-				523D79B9248D652B0074ECDC /* Add Room */,
-				523D79BC248D68D80074ECDC /* Detailed Room */,
+				523D79B1248D39B00074ECDC /* CheckingPresenter.swift */,
+				523D79B4248D4CA00074ECDC /* SignUpPresenter.swift */,
+				523D79B7248D5CF50074ECDC /* SignInPresesnter.swift */,
+				523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */,
+				523D79BA248D65460074ECDC /* AddRoomPresenter.swift */,
+				523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */,
 			);
-			path = Controller;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		52FC842E243A2BCF00638C46 /* Model */ = {
@@ -375,7 +335,7 @@
 				52DCEA572451FF30002F429C /* CheckingVC.swift in Sources */,
 				52DCEA59245217E3002F429C /* AddRoomVC.swift in Sources */,
 				523AFEBC244DF4C600AB8639 /* RoomsRouter.swift in Sources */,
-				52B9D8BD244F6B1F00F2E553 /* RoomCell.swift in Sources */,
+				52B9D8BD244F6B1F00F2E553 /* RoomTableViewCell.swift in Sources */,
 				523D79BB248D65460074ECDC /* AddRoomPresenter.swift in Sources */,
 				523AFEBE244DF4D800AB8639 /* RoomsRequest.swift in Sources */,
 				523D79B2248D39B00074ECDC /* CheckingPresenter.swift in Sources */,

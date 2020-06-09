@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoomCell: UITableViewCell {
+class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -17,7 +17,7 @@ class RoomCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func registerCell(room : Room) {
+    func confugerCell(room : Room) {
         titleLabel.text = room.title
         placeLabel.text = room.place
         priceLabel.text = room.price

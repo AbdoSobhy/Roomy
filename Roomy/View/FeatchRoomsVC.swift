@@ -20,12 +20,14 @@ class FeatchRoomsVC: UIViewController {
     }
     override func viewLayoutMarginsDidChange() {
         super.viewLayoutMarginsDidChange()
-        
         view.showAnimatedGradientSkeleton()
-        guard let myRooms = featchRoomsPresenter?.getRooms() else {return}
-        rooms.append(contentsOf: (myRooms))
-        self.view.hideSkeleton()
-        self.roomsTableView.reloadData()
+        featchRoomsPresenter?.getRooms({ (rooms) in
+            if !rooms.isEmpty {
+                self.rooms.append(contentsOf: (rooms))
+                self.view.hideSkeleton()
+                self.roomsTableView.reloadData()
+            }
+        })
         
     }
     
@@ -33,16 +35,16 @@ class FeatchRoomsVC: UIViewController {
 extension FeatchRoomsVC : SkeletonTableViewDataSource{
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "RoomCell"
+        return "RoomTableViewCell"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rooms.count
+        return featchRoomsPresenter?.getRoomsCount(self.rooms) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as!RoomCell
-        cell.registerCell(room: rooms[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTableViewCell", for: indexPath) as!RoomTableViewCell
+        cell.confugerCell(room: rooms[indexPath.row])
         return cell
     }
 }
