@@ -11,20 +11,24 @@ import Foundation
 protocol FeatchRoomsView : AnyObject {
     
 }
+
 protocol FeatchRoomsPresenter {
     func getRooms(_ completionHandeler : @escaping ([Room])->Void )
-    func getRoomsCount(_ rooms : [Room]) -> Int
+    var rooms : [Room]{ get set }
+    var roomsCount: Int { get }
 }
-class FeatchRoomsPresenterImpl : FeatchRoomsPresenter {
+
+class FeatchRoomsPresenterImpl {
     weak var view : FeatchRoomsView?
-    
+    var rooms = [Room]()
 
     init(view : FeatchRoomsView) {
         self.view = view
     }
-    
-    func getRoomsCount(_ rooms : [Room]) -> Int {
-       return rooms.count
+}
+extension FeatchRoomsPresenterImpl : FeatchRoomsPresenter{
+    var roomsCount: Int{
+        rooms.count
     }
     func getRooms(_ completionHandeler : @escaping ([Room])->Void ) {
         RoomsRequest.feachRooms { response in
@@ -35,8 +39,6 @@ class FeatchRoomsPresenterImpl : FeatchRoomsPresenter {
                 completionHandeler(RealmManger.featchRooms())
             }
         }
-        
     }
-    
-    
 }
+

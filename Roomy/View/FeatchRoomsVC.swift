@@ -12,7 +12,6 @@ import SkeletonView
 class FeatchRoomsVC: UIViewController {
     var featchRoomsPresenter : FeatchRoomsPresenter?
     @IBOutlet weak var roomsTableView: UITableView!
-    private var rooms = [Room]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +22,12 @@ class FeatchRoomsVC: UIViewController {
         view.showAnimatedGradientSkeleton()
         featchRoomsPresenter?.getRooms({ (rooms) in
             if !rooms.isEmpty {
-                self.rooms.append(contentsOf: (rooms))
+                self.featchRoomsPresenter?.rooms.append(contentsOf: rooms)
                 self.view.hideSkeleton()
                 self.roomsTableView.reloadData()
             }
         })
-        
     }
-    
 }
 extension FeatchRoomsVC : SkeletonTableViewDataSource{
     
@@ -39,20 +36,20 @@ extension FeatchRoomsVC : SkeletonTableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return featchRoomsPresenter?.getRoomsCount(self.rooms) ?? 0
+        return featchRoomsPresenter?.roomsCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTableViewCell", for: indexPath) as!RoomTableViewCell
-        cell.confugerCell(room: rooms[indexPath.row])
+        cell.configureCell(room: featchRoomsPresenter!.rooms[indexPath.row])
         return cell
     }
 }
 extension FeatchRoomsVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailedRoom = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailedRoom") as! DetailedRoom
-        detailedRoom.descriptionText = rooms[indexPath.row].descriptions
-        detailedRoom.imageHolder = rooms[indexPath.row].image
+        detailedRoom.descriptionText = featchRoomsPresenter!.rooms[indexPath.row].descriptions
+        detailedRoom.imageHolder = featchRoomsPresenter!.rooms[indexPath.row].image
         self.navigationController?.pushViewController(detailedRoom, animated: true)
     }
 }
