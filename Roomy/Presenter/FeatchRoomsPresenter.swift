@@ -7,15 +7,25 @@
 //
 
 import Foundation
-
+/// cell protocol
+protocol RoomCellPresenter {
+}
+protocol RoomCellView {
+     func desplay(title: String)
+     func desplay(place: String)
+     func desplay(price: String)
+}
+/// ViewController Protocol
 protocol FeatchRoomsView : AnyObject {
     
 }
 
 protocol FeatchRoomsPresenter {
-    func getRooms(_ completionHandeler : @escaping ([Room])->Void )
     var rooms : [Room]{ get set }
     var roomsCount: Int { get }
+    func getRooms(_ completionHandeler : @escaping ([Room])->Void )
+    func confuger(cell : RoomCellView , row : Int)
+
 }
 
 class FeatchRoomsPresenterImpl {
@@ -39,6 +49,13 @@ extension FeatchRoomsPresenterImpl : FeatchRoomsPresenter{
                 completionHandeler(RealmManger.featchRooms())
             }
         }
+    }
+}
+extension FeatchRoomsPresenterImpl : RoomCellPresenter {
+    func confuger(cell : RoomCellView , row : Int) {
+        cell.desplay(title: self.rooms[row].title ?? "")
+        cell.desplay(place: self.rooms[row].place ?? "")
+        cell.desplay(price: self.rooms[row].price ?? "")
     }
 }
 

@@ -41,7 +41,7 @@ extension FeatchRoomsVC : SkeletonTableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTableViewCell", for: indexPath) as!RoomTableViewCell
-        cell.configureCell(room: featchRoomsPresenter!.rooms[indexPath.row])
+        self.featchRoomsPresenter?.confuger(cell: cell, row: indexPath.row)
         return cell
     }
 }

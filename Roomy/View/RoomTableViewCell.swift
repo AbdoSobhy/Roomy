@@ -12,19 +12,19 @@ class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    var featchRoomsPresenter : FeatchRoomsPresenter?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        featchRoomsPresenter = FeatchRoomsPresenterImpl(view: self)
     }
-    
-    func configureCell(room : Room) {
-        titleLabel.text = room.title
-        placeLabel.text = room.place
-        priceLabel.text = room.price
-    }
-
 }
-extension RoomTableViewCell : FeatchRoomsView{
-    
+extension RoomTableViewCell : RoomCellView{
+    func desplay(title: String){
+        titleLabel.text = title
+    }
+    func desplay(place: String){
+        placeLabel.text = place
+    }
+    func desplay(price: String){
+        priceLabel.text = price
+    }
 }
