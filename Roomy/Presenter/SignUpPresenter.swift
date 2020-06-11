@@ -10,6 +10,8 @@ import Foundation
 
 protocol SignUpView : AnyObject  {
     func navigateToRooms()
+    func startAnimation()
+    func stopAnimation()
 }
 
 protocol SignUpPresenter {
@@ -22,10 +24,10 @@ class SignUpPresenterImpl : SignUpPresenter {
         self.view = view
     }
     func signUp(fullName : String, userName:String, signUpPassword:String){
-        
-        
+        self.view?.startAnimation()
         RoomsRequest.signUp(name: fullName, email: userName, password: signUpPassword) { (success:Bool, error:Error?) in
             if success{
+                self.view?.stopAnimation()
                 self.view?.navigateToRooms()
             }
         }

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, NVActivityIndicatorViewable {
     var signUpPresenter : SignUpPresenter?
     
     @IBOutlet weak var signUpFullName: UITextField!
@@ -35,6 +36,15 @@ class SignUpVC: UIViewController {
     }
 }
 extension SignUpVC : SignUpView {
+    func startAnimation() {
+        self.startAnimating()
+    }
+    
+    func stopAnimation() {
+        self.stopAnimating()
+
+    }
+
     func navigateToRooms() {
         let FeatchRoomsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeatchRoomsVC" ) as! FeatchRoomsVC
         self.navigationController?.pushViewController(FeatchRoomsVC, animated: true)

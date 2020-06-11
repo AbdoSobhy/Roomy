@@ -14,6 +14,6 @@ target 'Roomy' do
     pod 'KeychainSwift', '~> 19.0'
     pod 'FBSDKLoginKit', '~> 7.0.0'
     pod 'IQKeyboardManagerSwift', '~> 6.3.0'
-
+    pod 'NVActivityIndicatorView'
 
 end

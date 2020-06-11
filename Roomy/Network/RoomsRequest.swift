@@ -18,14 +18,16 @@ class RoomsRequest{
             switch Response.result{
             case.success(let result):
                 let post = JSON(result)
-                completionHandeler(true,nil)
                 
                 if let auth_token = post["auth_token"].string{
+                    completionHandeler(true,nil)
                     KeyChain.shared.setKey(keyName: "auth_token", keyValue: auth_token)
 //                    UserDefaults.standard.setValue(auth_token, forKey: "auth_token")
                     RoomsRouter.Constants.auth_token = auth_token
+                } else if post["auth_token"].string == nil{
+                    completionHandeler(false,nil)
+
                 }
-                
             case.failure(let error):
                 completionHandeler(false,error)
             }

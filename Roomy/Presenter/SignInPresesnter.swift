@@ -11,6 +11,9 @@ import FBSDKLoginKit
 
 protocol SignInView : AnyObject{
     func navigateToFeatchRoomsVC()
+    func showAlert()
+    func startAnimation()
+    func stopAnimation()
 }
 
 protocol SignInPresesnter {
@@ -39,15 +42,19 @@ class SignInPresesnterImpl : SignInPresesnter {
             }
         }
         else {
-            
             FacebookManger.shared.login(VC: VC)
         }
     }
     
     func signInWithLoginBtn(email: String, password: String) {
+        view?.startAnimation()
         RoomsRequest.signIn(email: email, password: password) { (success:Bool, error:Error?) in
             if success{
+                self.view?.stopAnimation()
                 self.view?.navigateToFeatchRoomsVC()
+            } else {
+                self.view?.stopAnimation()
+                self.view?.showAlert()
             }
         }
     }
