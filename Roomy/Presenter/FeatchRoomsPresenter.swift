@@ -11,9 +11,9 @@ import Foundation
 protocol RoomCellPresenter {
 }
 protocol RoomCellView {
-     func desplay(title: String)
-     func desplay(place: String)
-     func desplay(price: String)
+    func desplay(title: String)
+    func desplay(place: String)
+    func desplay(price: String)
 }
 /// ViewController Protocol
 protocol FeatchRoomsView : AnyObject {
@@ -25,13 +25,13 @@ protocol FeatchRoomsPresenter {
     var roomsCount: Int { get }
     func getRooms(_ completionHandeler : @escaping ([Room])->Void )
     func confuger(cell : RoomCellView , row : Int)
-
+    
 }
 
 class FeatchRoomsPresenterImpl {
     weak var view : FeatchRoomsView?
     var rooms = [Room]()
-
+    
     init(view : FeatchRoomsView) {
         self.view = view
     }
@@ -41,11 +41,10 @@ extension FeatchRoomsPresenterImpl : FeatchRoomsPresenter{
         rooms.count
     }
     func getRooms(_ completionHandeler : @escaping ([Room])->Void ) {
-        RoomsRequest.feachRooms { response in
-            switch response{
-            case .success(let rooms):
-                completionHandeler(rooms)
-            case .failure:
+        RoomsRequest.apiRequest(request: RoomsRouter.featchRooms) { (rooms : [Room]?, err) in
+            if rooms != nil {
+                completionHandeler(rooms!)
+            } else {
                 completionHandeler(RealmManger.featchRooms())
             }
         }

@@ -27,7 +27,6 @@ class CheckingPresenterImpl : CheckingPresenter {
     func cheakUserBeforeLogin() {
         
         if KeyChain.shared.getKey(keyName: "auth_token") != nil {
-            KeyChain.shared.deleteKeys()
             view?.navigateToFeatchRoomsVC()
             
         }

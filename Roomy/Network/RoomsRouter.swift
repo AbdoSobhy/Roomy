@@ -42,7 +42,7 @@ enum RoomsRouter: URLRequestConvertible {
         case .featchRooms:
             return .get
         case .addRoom:
-            return.post
+            return .post
         }
     }
     var parameters : [String:Any]{
@@ -71,11 +71,13 @@ enum RoomsRouter: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         
-        
+        switch self {
+        case .featchRooms, .addRoom :
         urlRequest.setValue(Constants.auth_token, forHTTPHeaderField: "Authorization")
+        case .signIn,.signUp : break
+        }
         
         return try URLEncoding.default.encode(urlRequest, with: parameters)
-        
-        
+   
     }
 }

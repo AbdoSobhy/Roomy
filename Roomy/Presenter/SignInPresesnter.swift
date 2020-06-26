@@ -34,8 +34,8 @@ class SignInPresesnterImpl : SignInPresesnter {
             FacebookManger.shared.featchProfile { (result) in
                 guard let email = result!["email"].string else {return}
                 let pass = "123456"
-                RoomsRequest.signIn(email: email, password: pass) { (isSuccess, error) in
-                    if isSuccess{
+                RoomsRequest.apiRequest(request: RoomsRouter.signIn(email: email, password: pass)) { (auth : Authentication? , err) in
+                    if auth != nil {
                         self.view?.navigateToFeatchRoomsVC()
                     }
                 }
@@ -48,8 +48,8 @@ class SignInPresesnterImpl : SignInPresesnter {
     
     func signInWithLoginBtn(email: String, password: String) {
         view?.startAnimation()
-        RoomsRequest.signIn(email: email, password: password) { (success:Bool, error:Error?) in
-            if success{
+        RoomsRequest.apiRequest(request: RoomsRouter.signIn(email: email, password: password)) { (auth : Authentication?, err) in
+            if auth != nil {
                 self.view?.stopAnimation()
                 self.view?.navigateToFeatchRoomsVC()
             } else {

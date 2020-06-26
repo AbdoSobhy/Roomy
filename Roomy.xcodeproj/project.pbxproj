@@ -16,6 +16,7 @@
 		523D79BB248D65460074ECDC /* AddRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79BA248D65460074ECDC /* AddRoomPresenter.swift */; };
 		523D79BE248D69170074ECDC /* DetailedRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */; };
 		523D79C1248D71070074ECDC /* FeatchRoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */; };
+		5252384B24A64C8B00B6D550 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252384A24A64C8B00B6D550 /* Authentication.swift */; };
 		52534448246B60F30009411B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52534447246B60F30009411B /* KeyChain.swift */; };
 		527D12BE244E375B005A46EB /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BD244E375B005A46EB /* RealmManager.swift */; };
 		527D12C0244E433D005A46EB /* MyCustom+Extintions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */; };
@@ -45,6 +46,7 @@
 		523D79BA248D65460074ECDC /* AddRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPresenter.swift; sourceTree = "<group>"; };
 		523D79BD248D69170074ECDC /* DetailedRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRoomPresenter.swift; sourceTree = "<group>"; };
 		523D79C0248D71070074ECDC /* FeatchRoomsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatchRoomsPresenter.swift; sourceTree = "<group>"; };
+		5252384A24A64C8B00B6D550 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		52534447246B60F30009411B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		527D12BD244E375B005A46EB /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		527D12BF244E433D005A46EB /* MyCustom+Extintions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCustom+Extintions.swift"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				52DC6106244E02CA00AC6833 /* Room.swift */,
+				5252384A24A64C8B00B6D550 /* Authentication.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				527D12C0244E433D005A46EB /* MyCustom+Extintions.swift in Sources */,
 				523D79BE248D69170074ECDC /* DetailedRoomPresenter.swift in Sources */,
 				52215D9424749890008C0655 /* FacebookManger.swift in Sources */,
+				5252384B24A64C8B00B6D550 /* Authentication.swift in Sources */,
 				527D12BE244E375B005A46EB /* RealmManager.swift in Sources */,
 				52DCEA5B24522639002F429C /* DetailedRoom.swift in Sources */,
 				52DC6107244E02CA00AC6833 /* Room.swift in Sources */,

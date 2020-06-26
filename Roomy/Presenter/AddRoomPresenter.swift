@@ -21,12 +21,10 @@ class AddRoomPresenterImpl : AddRoomPresenter {
     }
     
     func addRoom(title : String, place : String, price:String ,description : String? , image : UIImage? ) {
-        RoomsRequest.addRoom(title: title, place: place, price: price, description: description, image: image) { (success:Bool, error:Error?) in
-            if success{
+        RoomsRequest.apiRequest(request: RoomsRouter.addRoom(title: title, place: place, price: price, description: description, image: image)) { (room : Room? , err) in
+            if room != nil {
                 self.view?.navigateToFeatchRoomsVC()
             }
         }
-        
     }
-    
 }
