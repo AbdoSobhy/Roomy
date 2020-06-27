@@ -8,8 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
-import RealmSwift
 
 class RoomsRequest{
     
@@ -18,7 +16,7 @@ class RoomsRequest{
             switch response.result{
             case .success(let result):
                 do {
-                    let obj = try JSONDecoder().decode(T.self, from: result)
+                    let obj = try JSONDecoder().decode(T.self, from: result)                    
                     completionHandeler(obj , nil)
                 } catch {
                     completionHandeler(nil , error)

@@ -49,7 +49,8 @@ class SignInPresesnterImpl : SignInPresesnter {
     func signInWithLoginBtn(email: String, password: String) {
         view?.startAnimation()
         RoomsRequest.apiRequest(request: RoomsRouter.signIn(email: email, password: password)) { (auth : Authentication?, err) in
-            if auth != nil {
+            if let authentication = auth?.authToken {
+                KeyChain.shared.setKey(keyName: "auth_token", keyValue: authentication)
                 self.view?.stopAnimation()
                 self.view?.navigateToFeatchRoomsVC()
             } else {

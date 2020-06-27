@@ -8,7 +8,7 @@
 
 import Foundation
 struct Authentication : Codable {
-    private let authToken : String
+     let authToken : String
     
         enum CodingKeys: String, CodingKey  {
         case authToken = "auth_token"

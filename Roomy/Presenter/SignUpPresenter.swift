@@ -26,9 +26,12 @@ class SignUpPresenterImpl : SignUpPresenter {
     func signUp(fullName : String, userName:String, signUpPassword:String){
         self.view?.startAnimation()
         RoomsRequest.apiRequest(request: RoomsRouter.signUp(name: fullName, email: userName, password: signUpPassword)) { (auth : Authentication? , err) in
-            if auth != nil {
+            if let authentication = auth?.authToken {
+                KeyChain.shared.setKey(keyName: "auth_token", keyValue: authentication)
                 self.view?.stopAnimation()
                 self.view?.navigateToRooms()
+            } else {
+                self.view?.stopAnimation()
             }
         }
     }
