@@ -42,7 +42,8 @@ extension FeatchRoomsPresenterImpl : FeatchRoomsPresenter{
     }
     func getRooms(_ completionHandeler : @escaping ([Room])->Void ) {
         RoomsRequest.apiRequest(request: RoomsRouter.featchRooms) { (rooms : [Room]?, err) in
-            if let rooms = rooms {
+            if var rooms = rooms {
+                rooms.sort(){$0.created_at! > $1.created_at!}
                 RealmManger.saveRooms(rooms: rooms)
                 completionHandeler(rooms)
             } else {
